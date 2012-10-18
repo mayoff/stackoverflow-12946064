@@ -12,18 +12,27 @@
 
 @end
 
-@implementation ViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+@implementation ViewController {
+    IBOutlet UIView *subview_;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    NSLog(@"%@ %s self.view.frame=%@ subview_.frame=%@", self, (char*)_cmd, NSStringFromCGRect(self.view.frame), NSStringFromCGRect(subview_.frame));
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"%@ %s self.view.frame=%@ subview_.frame=%@", self, (char*)_cmd, NSStringFromCGRect(self.view.frame), NSStringFromCGRect(subview_.frame));
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"%@ %s self.view.frame=%@ subview_.frame=%@", self, (char*)_cmd, NSStringFromCGRect(self.view.frame), NSStringFromCGRect(subview_.frame));
 }
 
 @end
